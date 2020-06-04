@@ -1,0 +1,7 @@
+
+State Machine - |TicTacToe|tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state
+Name current_state.GAME_DONE current_state.COMPUTER current_state.PLAYER current_state.IDLE 
+current_state.IDLE 0 0 0 0 
+current_state.PLAYER 0 0 1 1 
+current_state.COMPUTER 0 1 0 1 
+current_state.GAME_DONE 1 0 0 1 

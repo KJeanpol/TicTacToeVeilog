@@ -1,0 +1,33 @@
+`timescale 1ns / 1ps
+module video_controller (
+	input logic clk,
+	output logic Hsynq,
+	output logic Vsynq,
+	output logic [7:0] red,
+	output logic [7:0] green,
+	output logic [7:0] blue,
+	output logic clk_25MHz,
+	output logic sync_N,
+	output logic blank_N
+	);
+
+	logic enable_V_Counter;
+	logic [15:0] h_Count_Value;
+	logic [15:0] v_Count_Value;
+	
+	clock_divider VGA_Clock_gen (clk, clk_25MHz);
+	horizontal_counter VGA_Horizontal (clk_25MHz, enable_V_Counter, h_Count_Value);
+	vertical_counter VGA_Vertical (clk_25MHz, enable_V_Counter, v_Count_Value);
+	
+	// Based on VGA standards
+	assign Hsynq = (h_Count_Value < 96) ? 1'b1:1'b0;
+	assign Vsynq = (v_Count_Value < 2) ? 1'b1:1'b0;
+	
+	assign red = (h_Count_Value < 784 && h_Count_Value > 143 && v_Count_Value < 515 && v_Count_Value > 34) ? 8'hFF:8'h0;
+	assign green = (h_Count_Value < 784 && h_Count_Value > 143 && v_Count_Value < 515 && v_Count_Value > 34) ? 8'hFF:8'h0;
+	assign blue = (h_Count_Value < 784 && h_Count_Value > 143 && v_Count_Value < 515 && v_Count_Value > 34) ? 8'hFF:8'h0;
+
+	assign sync_N = 1'b0;
+	assign blank_N = 1'b1;
+	
+endmodule

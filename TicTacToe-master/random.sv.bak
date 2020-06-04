@@ -1,0 +1,10 @@
+module random;
+
+  bit[69:0] vec;
+
+  initial begin
+    assert(std::randomize(vec));
+    $display("vec = %070b", vec);
+  end
+
+endmodule

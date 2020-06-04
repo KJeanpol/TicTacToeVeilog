@@ -1,0 +1,1598 @@
+Analysis & Synthesis report for TicTacToe
+Mon Oct 21 17:00:13 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |TicTacToe|tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated
+ 19. Source assignments for video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0|altsyncram_f7d1:auto_generated
+ 20. Source assignments for video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0|altsyncram_m4d1:auto_generated
+ 21. Source assignments for video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0|altsyncram_83d1:auto_generated
+ 22. Source assignments for video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0|altsyncram_59d1:auto_generated
+ 23. Source assignments for video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated
+ 24. Parameter Settings for User Entity Instance: tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller
+ 25. Parameter Settings for User Entity Instance: video_controller:VGA|clock_divider:vga_clock_gen
+ 26. Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_r
+ 27. Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_g
+ 28. Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_b
+ 29. Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_r
+ 30. Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_g
+ 31. Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_b
+ 32. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0
+ 33. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0
+ 34. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0
+ 35. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0
+ 36. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0
+ 37. Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0
+ 38. altsyncram Parameter Settings by Entity Instance
+ 39. Port Connectivity Checks: "video_controller:VGA|sram:pika_b"
+ 40. Port Connectivity Checks: "video_controller:VGA|sram:pika_g"
+ 41. Port Connectivity Checks: "video_controller:VGA|sram:pika_r"
+ 42. Port Connectivity Checks: "video_controller:VGA|sram:vamo_b"
+ 43. Port Connectivity Checks: "video_controller:VGA|sram:vamo_g"
+ 44. Port Connectivity Checks: "video_controller:VGA|sram:vamo_r"
+ 45. Port Connectivity Checks: "tic_tac_toe_game:JUEGO|position_decoder:pd2"
+ 46. Port Connectivity Checks: "tic_tac_toe_game:JUEGO|position_decoder:pd1"
+ 47. Post-Synthesis Netlist Statistics for Top Partition
+ 48. Elapsed Time Per Partition
+ 49. Analysis & Synthesis Messages
+ 50. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Oct 21 17:00:13 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; TicTacToe                                   ;
+; Top-level Entity Name           ; TicTacToe                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 111                                         ;
+; Total pins                      ; 53                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 1,653,120                                   ;
+; Total DSP Blocks                ; 9                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; TicTacToe          ; TicTacToe          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                     ;
++-----------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                 ; Library ;
++-----------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+; contador.sv                             ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/contador.sv                                 ;         ;
+; winner_detect_3.sv                      ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv                          ;         ;
+; winner_detector.sv                      ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv                          ;         ;
+; tic_tac_toe_game.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv                         ;         ;
+; position_registers.sv                   ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv                       ;         ;
+; position_decoder.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv                         ;         ;
+; nospace_detector.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv                         ;         ;
+; illegal_move_detector.sv                ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv                    ;         ;
+; fsm_controller.sv                       ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv                           ;         ;
+; video_controller.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv                         ;         ;
+; clock_divider.sv                        ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv                            ;         ;
+; sram.sv                                 ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/sram.sv                                     ;         ;
+; TicTacToe.sv                            ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv                                ;         ;
+; horizontal_counter.sv                   ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv                       ;         ;
+; vertical_counter.sv                     ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv                         ;         ;
+; selector.sv                             ; yes             ; User SystemVerilog HDL File                           ; C:/intelFPGA_lite/18.1/TicTacToe/selector.sv                                 ;         ;
+; altsyncram.tdf                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_l7d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_f63ae35d.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_f63ae35d.hdl.mif     ;         ;
+; db/decode_31a.tdf                       ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/decode_31a.tdf                           ;         ;
+; db/mux_qfb.tdf                          ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/mux_qfb.tdf                              ;         ;
+; db/altsyncram_f7d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_f7d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_e7aaa507.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_e7aaa507.hdl.mif     ;         ;
+; db/altsyncram_m4d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_m4d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_a8664d23.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_a8664d23.hdl.mif     ;         ;
+; db/altsyncram_83d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_83d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_249830e5.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_249830e5.hdl.mif     ;         ;
+; db/altsyncram_59d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_59d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_a7cfe43d.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_a7cfe43d.hdl.mif     ;         ;
+; db/altsyncram_k4d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_k4d1.tdf                      ;         ;
+; db/tictactoe.ram0_sram_2f6138f0.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/intelFPGA_lite/18.1/TicTacToe/db/tictactoe.ram0_sram_2f6138f0.hdl.mif     ;         ;
++-----------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 499            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 718            ;
+;     -- 7 input functions                    ; 9              ;
+;     -- 6 input functions                    ; 269            ;
+;     -- 5 input functions                    ; 76             ;
+;     -- 4 input functions                    ; 71             ;
+;     -- <=3 input functions                  ; 293            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 111            ;
+;                                             ;                ;
+; I/O pins                                    ; 53             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 1653120        ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 9              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 277            ;
+; Total fan-out                               ; 6631           ;
+; Average fan-out                             ; 5.77           ;
++---------------------------------------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                             ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name           ; Library Name ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+; |TicTacToe                                    ; 718 (7)             ; 111 (0)                   ; 1653120           ; 9          ; 53   ; 0            ; |TicTacToe                                                                                                                      ; TicTacToe             ; work         ;
+;    |contador:cont|                            ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|contador:cont                                                                                                        ; contador              ; work         ;
+;    |selector:sel|                             ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|selector:sel                                                                                                         ; selector              ; work         ;
+;    |tic_tac_toe_game:JUEGO|                   ; 75 (0)              ; 21 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO                                                                                               ; tic_tac_toe_game      ; work         ;
+;       |fsm_controller:tic_tac_toe_controller| ; 9 (9)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller                                                         ; fsm_controller        ; work         ;
+;       |illegal_move_detector:imd_unit|        ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|illegal_move_detector:imd_unit                                                                ; illegal_move_detector ; work         ;
+;       |nospace_detector:nsd_unit|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|nospace_detector:nsd_unit                                                                     ; nospace_detector      ; work         ;
+;       |position_decoder:pd1|                  ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|position_decoder:pd1                                                                          ; position_decoder      ; work         ;
+;       |position_decoder:pd2|                  ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|position_decoder:pd2                                                                          ; position_decoder      ; work         ;
+;       |position_registers:position_reg_unit|  ; 11 (11)             ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|position_registers:position_reg_unit                                                          ; position_registers    ; work         ;
+;       |winner_detector:win_detect_unit|       ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit                                                               ; winner_detector       ; work         ;
+;          |winner_detect_3:u1|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u1                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u2                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u4|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u4                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u5|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u5                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u6|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u6                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u7|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u7                                            ; winner_detect_3       ; work         ;
+;          |winner_detect_3:u8|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u8                                            ; winner_detect_3       ; work         ;
+;    |video_controller:VGA|                     ; 630 (498)           ; 84 (0)                    ; 1653120           ; 9          ; 0    ; 0            ; |TicTacToe|video_controller:VGA                                                                                                 ; video_controller      ; work         ;
+;       |clock_divider:vga_clock_gen|           ; 40 (40)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|clock_divider:vga_clock_gen                                                                     ; clock_divider         ; work         ;
+;       |horizontal_counter:vga_horizontal|     ; 20 (20)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|horizontal_counter:vga_horizontal                                                               ; horizontal_counter    ; work         ;
+;       |sram:pika_b|                           ; 1 (0)               ; 3 (0)                     ; 40320             ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_b                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 1 (0)               ; 3 (0)                     ; 40320             ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_l7d1:auto_generated|  ; 1 (0)               ; 3 (3)                     ; 40320             ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated                        ; altsyncram_l7d1       ; work         ;
+;                |mux_qfb:mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |sram:pika_g|                           ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_g                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_f7d1:auto_generated|  ; 8 (0)               ; 3 (3)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0|altsyncram_f7d1:auto_generated                        ; altsyncram_f7d1       ; work         ;
+;                |mux_qfb:mux2|                 ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0|altsyncram_f7d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |sram:pika_r|                           ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_r                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_m4d1:auto_generated|  ; 8 (0)               ; 3 (3)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0|altsyncram_m4d1:auto_generated                        ; altsyncram_m4d1       ; work         ;
+;                |mux_qfb:mux2|                 ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0|altsyncram_m4d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |sram:vamo_b|                           ; 16 (0)              ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_b                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 16 (0)              ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_83d1:auto_generated|  ; 16 (0)              ; 3 (3)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0|altsyncram_83d1:auto_generated                        ; altsyncram_83d1       ; work         ;
+;                |mux_qfb:mux2|                 ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0|altsyncram_83d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |sram:vamo_g|                           ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_g                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 8 (0)               ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_59d1:auto_generated|  ; 8 (0)               ; 3 (3)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0|altsyncram_59d1:auto_generated                        ; altsyncram_59d1       ; work         ;
+;                |mux_qfb:mux2|                 ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0|altsyncram_59d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |sram:vamo_r|                           ; 13 (0)              ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_r                                                                                     ; sram                  ; work         ;
+;          |altsyncram:memory_array_rtl_0|      ; 13 (0)              ; 3 (0)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0                                                       ; altsyncram            ; work         ;
+;             |altsyncram_k4d1:auto_generated|  ; 13 (0)              ; 3 (3)                     ; 322560            ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated                        ; altsyncram_k4d1       ; work         ;
+;                |decode_31a:rden_decode|       ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated|decode_31a:rden_decode ; decode_31a            ; work         ;
+;                |mux_qfb:mux2|                 ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated|mux_qfb:mux2           ; mux_qfb               ; work         ;
+;       |vertical_counter:vga_Vertical|         ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |TicTacToe|video_controller:VGA|vertical_counter:vga_Vertical                                                                   ; vertical_counter      ; work         ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                      ;
++----------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------------------------------+
+; Name                                                                                                     ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                     ;
++----------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------------------------------+
+; video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_f63ae35d.hdl.mif ;
+; video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0|altsyncram_f7d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_e7aaa507.hdl.mif ;
+; video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0|altsyncram_m4d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_a8664d23.hdl.mif ;
+; video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0|altsyncram_83d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_249830e5.hdl.mif ;
+; video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0|altsyncram_59d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_a7cfe43d.hdl.mif ;
+; video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 40320        ; 8            ; --           ; --           ; 322560 ; db/TicTacToe.ram0_sram_2f6138f0.hdl.mif ;
++----------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------------------------------+
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 9           ;
+; Total number of DSP blocks      ; 9           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 9           ;
++---------------------------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |TicTacToe|tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state                  ;
++-------------------------+-------------------------+------------------------+----------------------+--------------------+
+; Name                    ; current_state.GAME_DONE ; current_state.COMPUTER ; current_state.PLAYER ; current_state.IDLE ;
++-------------------------+-------------------------+------------------------+----------------------+--------------------+
+; current_state.IDLE      ; 0                       ; 0                      ; 0                    ; 0                  ;
+; current_state.PLAYER    ; 0                       ; 0                      ; 1                    ; 1                  ;
+; current_state.COMPUTER  ; 0                       ; 1                      ; 0                    ; 1                  ;
+; current_state.GAME_DONE ; 1                       ; 0                      ; 0                    ; 1                  ;
++-------------------------+-------------------------+------------------------+----------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                             ;
++-----------------------------------------------------+----------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal              ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------------+------------------------+
+; video_controller:VGA|address[15]                    ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[14]                    ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[13]                    ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[0]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[1]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[2]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[3]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[4]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[5]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[6]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[7]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[8]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[9]                     ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[10]                    ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[11]                    ; video_controller:VGA|address[15] ; yes                    ;
+; video_controller:VGA|address[12]                    ; video_controller:VGA|address[15] ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                                  ;                        ;
++-----------------------------------------------------+----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                        ;
++--------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                        ; Reason for Removal ;
++--------------------------------------------------------------------------------------+--------------------+
+; tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state~4         ; Lost fanout        ;
+; tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state~5         ; Lost fanout        ;
+; tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state.GAME_DONE ; Lost fanout        ;
+; Total Number of Removed Registers = 3                                                ;                    ;
++--------------------------------------------------------------------------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                              ;
++------------------------------------------------------------------------------+--------------------+--------------------------------------------------------------------------------------+
+; Register name                                                                ; Reason for Removal ; Registers Removed due to This Register                                               ;
++------------------------------------------------------------------------------+--------------------+--------------------------------------------------------------------------------------+
+; tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state~4 ; Lost Fanouts       ; tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|current_state.GAME_DONE ;
++------------------------------------------------------------------------------+--------------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 111   ;
+; Number of registers using Synchronous Clear  ; 64    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 34    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; selector:sel|X                         ; 3       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                 ;
++-------------------------------------------------+-----------------------------------------------------+------+
+; Register Name                                   ; Megafunction                                        ; Type ;
++-------------------------------------------------+-----------------------------------------------------+------+
+; video_controller:VGA|sram:pika_b|sram_out[0]    ; video_controller:VGA|sram:pika_b|memory_array_rtl_0 ; RAM  ;
+; video_controller:VGA|sram:pika_g|sram_out[0..7] ; video_controller:VGA|sram:pika_g|memory_array_rtl_0 ; RAM  ;
+; video_controller:VGA|sram:pika_r|sram_out[0..7] ; video_controller:VGA|sram:pika_r|memory_array_rtl_0 ; RAM  ;
+; video_controller:VGA|sram:vamo_b|sram_out[0..7] ; video_controller:VGA|sram:vamo_b|memory_array_rtl_0 ; RAM  ;
+; video_controller:VGA|sram:vamo_g|sram_out[0..7] ; video_controller:VGA|sram:vamo_g|memory_array_rtl_0 ; RAM  ;
+; video_controller:VGA|sram:vamo_r|sram_out[0..7] ; video_controller:VGA|sram:vamo_r|memory_array_rtl_0 ; RAM  ;
++-------------------------------------------------+-----------------------------------------------------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TicTacToe|tic_tac_toe_game:JUEGO|position_registers:position_reg_unit|pos9[1] ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |TicTacToe|video_controller:VGA|Add1                                           ;
+; 9:1                ; 15 bits   ; 90 LEs        ; 45 LEs               ; 45 LEs                 ; No         ; |TicTacToe|video_controller:VGA|Add1                                           ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 84 LEs               ; 0 LEs                  ; No         ; |TicTacToe|video_controller:VGA|blue[2]                                        ;
+; 37:1               ; 9 bits    ; 216 LEs       ; 126 LEs              ; 90 LEs                 ; No         ; |TicTacToe|video_controller:VGA|blue[0]                                        ;
+; 37:1               ; 8 bits    ; 192 LEs       ; 64 LEs               ; 128 LEs                ; No         ; |TicTacToe|video_controller:VGA|red[0]                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0|altsyncram_f7d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0|altsyncram_m4d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0|altsyncram_83d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0|altsyncram_59d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0|altsyncram_k4d1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; IDLE           ; 00    ; Unsigned Binary                                                                  ;
+; PLAYER         ; 01    ; Unsigned Binary                                                                  ;
+; COMPUTER       ; 10    ; Unsigned Binary                                                                  ;
+; GAME_DONE      ; 11    ; Unsigned Binary                                                                  ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|clock_divider:vga_clock_gen ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; div_value      ; 0     ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_r                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteVamoR.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_g                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteVamoG.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:vamo_b                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteVamoB.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_r                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spritePikaR.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_g                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spritePikaG.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_controller:VGA|sram:pika_b                       ;
++----------------+-------------------------------------------------------------------+----------------+
+; Parameter Name ; Value                                                             ; Type           ;
++----------------+-------------------------------------------------------------------+----------------+
+; ADDRESS_WIDTH  ; 16                                                                ; Signed Integer ;
+; DATA_WIDTH     ; 8                                                                 ; Signed Integer ;
+; DEPTH          ; 40320                                                             ; Signed Integer ;
+; MEMFILE        ; C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spritePikaB.mem ; String         ;
++----------------+-------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_f63ae35d.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_l7d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_e7aaa507.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_f7d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_a8664d23.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_m4d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_249830e5.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_83d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_a7cfe43d.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_59d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0 ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; Parameter Name                     ; Value                                   ; Type                             ;
++------------------------------------+-----------------------------------------+----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                          ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                   ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                          ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                          ;
+; WIDTH_A                            ; 8                                       ; Untyped                          ;
+; WIDTHAD_A                          ; 16                                      ; Untyped                          ;
+; NUMWORDS_A                         ; 40320                                   ; Untyped                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                          ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                          ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                          ;
+; WIDTH_B                            ; 1                                       ; Untyped                          ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                          ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                          ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                          ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                          ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                          ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                          ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                          ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                          ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                          ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                          ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                          ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                          ;
+; INIT_FILE                          ; db/TicTacToe.ram0_sram_2f6138f0.hdl.mif ; Untyped                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                          ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                          ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                          ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                          ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                          ;
+; CBXI_PARAMETER                     ; altsyncram_k4d1                         ; Untyped                          ;
++------------------------------------+-----------------------------------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                           ;
++-------------------------------------------+----------------------------------------------------------------+
+; Name                                      ; Value                                                          ;
++-------------------------------------------+----------------------------------------------------------------+
+; Number of entity instances                ; 6                                                              ;
+; Entity Instance                           ; video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
+; Entity Instance                           ; video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
+; Entity Instance                           ; video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
+; Entity Instance                           ; video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
+; Entity Instance                           ; video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
+; Entity Instance                           ; video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                            ;
+;     -- WIDTH_A                            ; 8                                                              ;
+;     -- NUMWORDS_A                         ; 40320                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 1                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
++-------------------------------------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:pika_b"                                                                                                                                                           ;
++---------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                                                                                            ;
++---------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input  ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_out      ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "sram_out[7..1]" have no fanouts                                                        ;
++---------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:pika_g"                                                                                                                                                          ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:pika_r"                                                                                                                                                          ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:vamo_b"                                                                                                                                                          ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:vamo_g"                                                                                                                                                          ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_controller:VGA|sram:vamo_r"                                                                                                                                                          ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rw            ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rw[-1]        ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; sram_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; sram_in[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tic_tac_toe_game:JUEGO|position_decoder:pd2"                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; out_en[15..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tic_tac_toe_game:JUEGO|position_decoder:pd1"                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; out_en[15..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 111                         ;
+;     CLR               ; 5                           ;
+;     ENA CLR           ; 18                          ;
+;     ENA SCLR          ; 16                          ;
+;     SCLR              ; 48                          ;
+;     plain             ; 24                          ;
+; arriav_lcell_comb     ; 721                         ;
+;     arith             ; 223                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 204                         ;
+;         2 data inputs ; 1                           ;
+;         5 data inputs ; 15                          ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 489                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 47                          ;
+;         4 data inputs ; 71                          ;
+;         5 data inputs ; 61                          ;
+;         6 data inputs ; 269                         ;
+; arriav_mac            ; 9                           ;
+; boundary_port         ; 53                          ;
+; stratixv_ram_block    ; 205                         ;
+;                       ;                             ;
+; Max LUT depth         ; 10.40                       ;
+; Average LUT depth     ; 4.65                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Mon Oct 21 16:57:36 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TicTacToe -c TicTacToe
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file contador.sv
+    Info (12023): Found entity 1: contador File: C:/intelFPGA_lite/18.1/TicTacToe/contador.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file winner_detect_3.sv
+    Info (12023): Found entity 1: winner_detect_3 File: C:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file winner_detector.sv
+    Info (12023): Found entity 1: winner_detector File: C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file v_driver.sv
+    Info (12023): Found entity 1: v_driver File: C:/intelFPGA_lite/18.1/TicTacToe/v_driver.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file visiblelogic.sv
+    Info (12023): Found entity 1: visibleLogic File: C:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tic_tac_toe_game.sv
+    Info (12023): Found entity 1: tic_tac_toe_game File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sprite_top.sv
+    Info (12023): Found entity 1: sprite_top File: C:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file screen.sv
+    Info (12023): Found entity 1: screen File: C:/intelFPGA_lite/18.1/TicTacToe/screen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file position_registers.sv
+    Info (12023): Found entity 1: position_registers File: C:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file position_decoder.sv
+    Info (12023): Found entity 1: position_decoder File: C:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file nospace_detector.sv
+    Info (12023): Found entity 1: nospace_detector File: C:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file illegal_move_detector.sv
+    Info (12023): Found entity 1: illegal_move_detector File: C:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file fsm_controller.sv
+    Info (12023): Found entity 1: fsm_controller File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file deco.sv
+    Info (12023): Found entity 1: deco File: C:/intelFPGA_lite/18.1/TicTacToe/deco.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file addressgen.sv
+    Info (12023): Found entity 1: addressGen File: C:/intelFPGA_lite/18.1/TicTacToe/addressGen.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file video_controller.sv
+    Info (12023): Found entity 1: video_controller File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_video_controller.sv
+    Info (12023): Found entity 1: testbench_Video_Controller File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sprite_controller.sv
+    Info (12023): Found entity 1: sprite_controller File: C:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.sv
+    Info (12023): Found entity 1: clock_divider File: C:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sram.sv
+    Info (12023): Found entity 1: sram File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tictactoe.sv
+    Info (12023): Found entity 1: TicTacToe File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file horizontal_counter.sv
+    Info (12023): Found entity 1: horizontal_counter File: C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file vertical_counter.sv
+    Info (12023): Found entity 1: vertical_counter File: C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_tictactoe.sv
+    Info (12023): Found entity 1: testbench_TicTacToe File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_TicTacToe.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_sprite_controller.sv
+    Info (12023): Found entity 1: testbench_Sprite_Controller File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sprite_Controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_sram.sv
+    Info (12023): Found entity 1: testbench_Sram File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sram.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_tttgame.sv
+    Info (12023): Found entity 1: testbench_TTTGAME File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_TTTGAME.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file selector.sv
+    Info (12023): Found entity 1: selector File: C:/intelFPGA_lite/18.1/TicTacToe/selector.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at visibleLogic.sv(6): created implicit net for "backgound" File: C:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv Line: 6
+Warning (10236): Verilog HDL Implicit Net warning at video_controller.sv(64): created implicit net for "sprite_pika_b" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 64
+Warning (10236): Verilog HDL Implicit Net warning at testbench_Video_Controller.sv(13): created implicit net for "clk_25Mhz" File: C:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv Line: 13
+Warning (10236): Verilog HDL Implicit Net warning at sprite_controller.sv(18): created implicit net for "wren" File: C:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv Line: 18
+Info (12127): Elaborating entity "TicTacToe" for the top level hierarchy
+Warning (10034): Output port "LEDR" at TicTacToe.sv(7) has no driver File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+Info (12128): Elaborating entity "contador" for hierarchy "contador:cont" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 36
+Warning (10230): Verilog HDL assignment warning at contador.sv(18): truncated value with size 32 to match size of target (4) File: C:/intelFPGA_lite/18.1/TicTacToe/contador.sv Line: 18
+Info (12128): Elaborating entity "selector" for hierarchy "selector:sel" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 37
+Info (12128): Elaborating entity "tic_tac_toe_game" for hierarchy "tic_tac_toe_game:JUEGO" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 53
+Info (12128): Elaborating entity "position_registers" for hierarchy "tic_tac_toe_game:JUEGO|position_registers:position_reg_unit" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 32
+Info (12128): Elaborating entity "winner_detector" for hierarchy "tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 34
+Info (12128): Elaborating entity "winner_detect_3" for hierarchy "tic_tac_toe_game:JUEGO|winner_detector:win_detect_unit|winner_detect_3:u1" File: C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv Line: 9
+Info (12128): Elaborating entity "position_decoder" for hierarchy "tic_tac_toe_game:JUEGO|position_decoder:pd1" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 36
+Info (12128): Elaborating entity "illegal_move_detector" for hierarchy "tic_tac_toe_game:JUEGO|illegal_move_detector:imd_unit" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 44
+Info (12128): Elaborating entity "nospace_detector" for hierarchy "tic_tac_toe_game:JUEGO|nospace_detector:nsd_unit" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 49
+Info (12128): Elaborating entity "fsm_controller" for hierarchy "tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller" File: C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv Line: 60
+Warning (10240): Verilog HDL Always Construct warning at fsm_controller.sv(32): inferring latch(es) for variable "next_state", which holds its previous value in one or more paths through the always construct File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Warning (10240): Verilog HDL Always Construct warning at fsm_controller.sv(32): inferring latch(es) for variable "computer_play", which holds its previous value in one or more paths through the always construct File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (10041): Inferred latch for "computer_play" at fsm_controller.sv(32) File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (10041): Inferred latch for "next_state.GAME_DONE" at fsm_controller.sv(32) File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (10041): Inferred latch for "next_state.COMPUTER" at fsm_controller.sv(32) File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (10041): Inferred latch for "next_state.PLAYER" at fsm_controller.sv(32) File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (10041): Inferred latch for "next_state.IDLE" at fsm_controller.sv(32) File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (12128): Elaborating entity "video_controller" for hierarchy "video_controller:VGA" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 108
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(78): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 78
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(79): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 79
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(126): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 126
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(127): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 127
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(174): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 174
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(175): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 175
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(222): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 222
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(223): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 223
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(270): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 270
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(271): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 271
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(318): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 318
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(319): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 319
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(366): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 366
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(367): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 367
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(414): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 414
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(415): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 415
+Warning (10230): Verilog HDL assignment warning at video_controller.sv(462): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 462
+Info (10264): Verilog HDL Case Statement information at video_controller.sv(463): all case item expressions in this case statement are onehot File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 463
+Warning (10240): Verilog HDL Always Construct warning at video_controller.sv(74): inferring latch(es) for variable "address", which holds its previous value in one or more paths through the always construct File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 74
+Info (10041): Inferred latch for "address[0]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[1]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[2]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[3]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[4]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[5]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[6]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[7]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[8]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[9]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[10]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[11]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[12]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[13]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[14]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (10041): Inferred latch for "address[15]" at video_controller.sv(122) File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 122
+Info (12128): Elaborating entity "clock_divider" for hierarchy "video_controller:VGA|clock_divider:vga_clock_gen" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 40
+Info (12128): Elaborating entity "horizontal_counter" for hierarchy "video_controller:VGA|horizontal_counter:vga_horizontal" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 43
+Warning (10230): Verilog HDL assignment warning at horizontal_counter.sv(12): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv Line: 12
+Info (12128): Elaborating entity "vertical_counter" for hierarchy "video_controller:VGA|vertical_counter:vga_Vertical" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 44
+Warning (10230): Verilog HDL assignment warning at vertical_counter.sv(13): truncated value with size 32 to match size of target (16) File: C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv Line: 13
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:vamo_r" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 52
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:vamo_g" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 54
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:vamo_b" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 56
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:pika_r" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 60
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:pika_g" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 62
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Info (12128): Elaborating entity "sram" for hierarchy "video_controller:VGA|sram:pika_b" File: C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv Line: 64
+Warning (10850): Verilog HDL warning at sram.sv(11): number of words (10000) in memory file does not match the number of elements in the address range [0:40319] File: C:/intelFPGA_lite/18.1/TicTacToe/sram.sv Line: 11
+Warning (14026): LATCH primitive "tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|next_state.IDLE_133" is permanently enabled File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Warning (14026): LATCH primitive "tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|next_state.PLAYER_120" is permanently enabled File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Warning (14026): LATCH primitive "tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|next_state.COMPUTER_107" is permanently enabled File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Warning (14026): LATCH primitive "tic_tac_toe_game:JUEGO|fsm_controller:tic_tac_toe_controller|next_state.GAME_DONE_94" is permanently enabled File: C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv Line: 32
+Info (19000): Inferred 6 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:pika_b|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_f63ae35d.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:pika_g|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_e7aaa507.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:pika_r|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_a8664d23.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:vamo_b|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_249830e5.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:vamo_g|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_a7cfe43d.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "video_controller:VGA|sram:vamo_r|memory_array_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter NUMWORDS_A set to 40320
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/TicTacToe.ram0_sram_2f6138f0.hdl.mif
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_f63ae35d.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_l7d1.tdf
+    Info (12023): Found entity 1: altsyncram_l7d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_31a.tdf
+    Info (12023): Found entity 1: decode_31a File: C:/intelFPGA_lite/18.1/TicTacToe/db/decode_31a.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_qfb.tdf
+    Info (12023): Found entity 1: mux_qfb File: C:/intelFPGA_lite/18.1/TicTacToe/db/mux_qfb.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:pika_g|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_e7aaa507.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_f7d1.tdf
+    Info (12023): Found entity 1: altsyncram_f7d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_f7d1.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:pika_r|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_a8664d23.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m4d1.tdf
+    Info (12023): Found entity 1: altsyncram_m4d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_m4d1.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:vamo_b|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_249830e5.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_83d1.tdf
+    Info (12023): Found entity 1: altsyncram_83d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_83d1.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:vamo_g|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_a7cfe43d.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_59d1.tdf
+    Info (12023): Found entity 1: altsyncram_59d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_59d1.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0"
+Info (12133): Instantiated megafunction "video_controller:VGA|sram:vamo_r|altsyncram:memory_array_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "40320"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/TicTacToe.ram0_sram_2f6138f0.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_k4d1.tdf
+    Info (12023): Found entity 1: altsyncram_k4d1 File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_k4d1.tdf Line: 31
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a1" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 62
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a2" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 83
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a3" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 104
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a4" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 125
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a5" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 146
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a6" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 167
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a7" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 188
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a9" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 230
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a10" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 251
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a11" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 272
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a12" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 293
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a13" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 314
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a14" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 335
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a15" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 356
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a17" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 398
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a18" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 419
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a19" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 440
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a20" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 461
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a21" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 482
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a22" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 503
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a23" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 524
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a25" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 566
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a26" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 587
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a27" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 608
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a28" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 629
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a29" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 650
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a30" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 671
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a31" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 692
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a33" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 734
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a34" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 755
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a35" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 776
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a36" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 797
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a37" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 818
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a38" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 839
+        Warning (14320): Synthesized away node "video_controller:VGA|sram:pika_b|altsyncram:memory_array_rtl_0|altsyncram_l7d1:auto_generated|ram_block1a39" File: C:/intelFPGA_lite/18.1/TicTacToe/db/altsyncram_l7d1.tdf Line: 860
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 7
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 14
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 16
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/intelFPGA_lite/18.1/TicTacToe/output_files/TicTacToe.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv Line: 3
+Info (21057): Implemented 1007 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 39 output pins
+    Info (21061): Implemented 740 logic cells
+    Info (21064): Implemented 205 RAM segments
+    Info (21062): Implemented 9 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 93 warnings
+    Info: Peak virtual memory: 4860 megabytes
+    Info: Processing ended: Mon Oct 21 17:00:13 2019
+    Info: Elapsed time: 00:02:37
+    Info: Total CPU time (on all processors): 00:03:02
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/intelFPGA_lite/18.1/TicTacToe/output_files/TicTacToe.map.smsg.
+
+

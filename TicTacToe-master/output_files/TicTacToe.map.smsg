@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at sprite_top.sv(6): object "address" differs only in case from object "ADDRESS" in the same scope File: C:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv Line: 6
+Warning (10268): Verilog HDL information at selector.sv(10): always construct contains both blocking and non-blocking assignments File: C:/intelFPGA_lite/18.1/TicTacToe/selector.sv Line: 10

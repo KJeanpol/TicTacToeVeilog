@@ -1,0 +1,739 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/intelFPGA_lite/18.1/TicTacToe/simulation/modelsim
+vaddressGen
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1571706155
+!i10b 1
+!s100 WL38n5>cDA[bIg<F63=<P2
+IBjEg?dNZ7=hc<RAi:05b=0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 addressGen_sv_unit
+S1
+R0
+w1570123453
+8C:/intelFPGA_lite/18.1/TicTacToe/addressGen.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/addressGen.sv
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1571706155.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/addressGen.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/addressGen.sv|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+naddress@gen
+vclock_divider
+R1
+Z6 !s110 1571706156
+!i10b 1
+!s100 k<IRC?2YOn1gg^UNEPFVa1
+I?egJWA8go_V?3Z;312X]z1
+R2
+!s105 clock_divider_sv_unit
+S1
+R0
+w1571590407
+8C:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv
+L0 2
+R3
+r1
+!s85 0
+31
+Z7 !s108 1571706156.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/clock_divider.sv|
+!i113 1
+R4
+R5
+vcontador
+R1
+R6
+!i10b 1
+!s100 ln<QE@9VERY1=^?:FeMXJ2
+IHKa93zG;gJL;>`bLJ>jze2
+R2
+!s105 contador_sv_unit
+S1
+R0
+w1571698483
+8C:/intelFPGA_lite/18.1/TicTacToe/contador.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/contador.sv
+L0 5
+R3
+r1
+!s85 0
+31
+R7
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/contador.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/contador.sv|
+!i113 1
+R4
+R5
+vdeco
+R1
+R6
+!i10b 1
+!s100 8D1jI>42[nH6>lhL2OZ063
+Il26;AInk0D[0_Ta]?JVP=2
+R2
+!s105 deco_sv_unit
+S1
+R0
+w1570122382
+8C:/intelFPGA_lite/18.1/TicTacToe/deco.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/deco.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R7
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/deco.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/deco.sv|
+!i113 1
+R4
+R5
+vfsm_controller
+R1
+Z8 !s110 1571706157
+!i10b 1
+!s100 a32WN6NU2U@Cjjc^6RMRb1
+IQnkcS_S4XTooGRn6eZ>[@3
+R2
+!s105 fsm_controller_sv_unit
+S1
+R0
+w1569992780
+8C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R7
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/fsm_controller.sv|
+!i113 1
+R4
+R5
+vhorizontal_counter
+R1
+R8
+!i10b 1
+!s100 _D8XM9H;XPiEU54DX_7UL0
+I3=TAfa`bXBBRZDkC9WQ3Y2
+R2
+!s105 horizontal_counter_sv_unit
+S1
+R0
+w1571590409
+8C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv
+L0 2
+R3
+r1
+!s85 0
+31
+Z9 !s108 1571706157.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/horizontal_counter.sv|
+!i113 1
+R4
+R5
+villegal_move_detector
+R1
+R8
+!i10b 1
+!s100 46^=S^VjP^oiT>g1@;DXQ0
+I3kNJdWJMV>zYGIl6GKDK_2
+R2
+!s105 illegal_move_detector_sv_unit
+S1
+R0
+w1569992845
+8C:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/illegal_move_detector.sv|
+!i113 1
+R4
+R5
+vnospace_detector
+R1
+Z10 !s110 1571706158
+!i10b 1
+!s100 4jViQA?DKDUKbiSeWbQ^@0
+IZL5nPn563CTK4UbeUmA0P3
+R2
+!s105 nospace_detector_sv_unit
+S1
+R0
+w1569992811
+8C:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/nospace_detector.sv|
+!i113 1
+R4
+R5
+vposition_decoder
+R1
+R10
+!i10b 1
+!s100 [LJ06S7mhOEd[RVl:=dTf0
+I3cl:GX3J<oZmTTYCmRZTo2
+R2
+!s105 position_decoder_sv_unit
+S1
+R0
+w1569992871
+8C:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv
+L0 5
+R3
+r1
+!s85 0
+31
+Z11 !s108 1571706158.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/position_decoder.sv|
+!i113 1
+R4
+R5
+vposition_registers
+R1
+R10
+!i10b 1
+!s100 nBo<G68n2M4D8E5:jUfEM2
+I5=:DgobVVloGDfhUGDn282
+R2
+!s105 position_registers_sv_unit
+S1
+R0
+w1569992724
+8C:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv
+L0 5
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/position_registers.sv|
+!i113 1
+R4
+R5
+vrandom
+R1
+Z12 !s110 1571706159
+!i10b 1
+!s100 ]D[9=NdkPkKlbf6GYfCTe1
+Ic@jAGGd>QB@TMUhKPjm<93
+R2
+!s105 random_sv_unit
+S1
+R0
+w1571693937
+8C:/intelFPGA_lite/18.1/TicTacToe/random.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/random.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R11
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/random.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/random.sv|
+!i113 1
+R4
+R5
+vscreen
+R1
+R12
+!i10b 1
+!s100 6@ER9=9MSU`_IoXk6c^>:2
+I[OG35OP`<]XPQTIf2b9fa3
+R2
+!s105 screen_sv_unit
+S1
+R0
+w1571591323
+8C:/intelFPGA_lite/18.1/TicTacToe/screen.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/screen.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z13 !s108 1571706159.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/screen.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/screen.sv|
+!i113 1
+R4
+R5
+vselector
+R1
+R12
+!i10b 1
+!s100 [S90Z6kR1TW_JgJ8m5OHW0
+ID@`lkZncIiNmcZOc9k5`g1
+R2
+!s105 selector_sv_unit
+S1
+R0
+w1571697628
+8C:/intelFPGA_lite/18.1/TicTacToe/selector.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/selector.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R13
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/selector.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/selector.sv|
+!i113 1
+R4
+R5
+vsprite_controller
+R1
+R12
+!i10b 1
+!s100 4MMjC;j2iEW=YeOoLPf4f3
+I]Tg=F2HjTaC0UJ?O7K4R31
+R2
+!s105 sprite_controller_sv_unit
+S1
+R0
+Z14 w1571590410
+8C:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R13
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/sprite_controller.sv|
+!i113 1
+R4
+R5
+vsprite_top
+R1
+Z15 !s110 1571706160
+!i10b 1
+!s100 68Nb]<4e?<0OQz_HHoU]U3
+IfzgBL<zIj3ZTBza7;zPz@2
+R2
+!s105 sprite_top_sv_unit
+S1
+R0
+w1570123828
+8C:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z16 !s108 1571706160.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/sprite_top.sv|
+!i113 1
+R4
+R5
+vsram
+R1
+R15
+!i10b 1
+!s100 I3j=kNjGazQnRzTo7m]]O0
+I;3Ujzm3WD=5E8AfbNOBf63
+R2
+!s105 sram_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/sram.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/sram.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R16
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/sram.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/sram.sv|
+!i113 1
+R4
+R5
+vtestbench_Random
+R1
+Z17 !s110 1571706162
+!i10b 1
+!s100 3HhC7`Q3P82FlH]=?Ml]`2
+IGeCDHhV`doB`_7LKkeNX`0
+R2
+!s105 testebench_Random_sv_unit
+S1
+R0
+w1571693695
+8C:/intelFPGA_lite/18.1/TicTacToe/testebench_Random.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testebench_Random.sv
+L0 3
+R3
+r1
+!s85 0
+31
+Z18 !s108 1571706162.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testebench_Random.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testebench_Random.sv|
+!i113 1
+R4
+R5
+ntestbench_@random
+vtestbench_Sprite_Controller
+R1
+R15
+!i10b 1
+!s100 01o2fS4X::1G>>XkfW<Wj3
+IjmboECP2Sk`mYGIWQEH2z3
+R2
+!s105 testbench_Sprite_Controller_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sprite_Controller.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testbench_Sprite_Controller.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R16
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sprite_Controller.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sprite_Controller.sv|
+!i113 1
+R4
+R5
+ntestbench_@sprite_@controller
+vtestbench_Sram
+R1
+Z19 !s110 1571706161
+!i10b 1
+!s100 JQ_ho=iO3M0lAh6f_z9Y33
+I`?`Gj<24VAhI`GKbFjK0Q1
+R2
+!s105 testbench_Sram_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sram.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testbench_Sram.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z20 !s108 1571706161.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sram.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testbench_Sram.sv|
+!i113 1
+R4
+R5
+ntestbench_@sram
+vtestbench_TicTacToe
+R1
+R19
+!i10b 1
+!s100 OAGLfbJ?0k_5??oM^;Fjf0
+IKXEW00MoK`Mh:S:kbPET]3
+R2
+!s105 testbench_TicTacToe_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/testbench_TicTacToe.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testbench_TicTacToe.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R20
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testbench_TicTacToe.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testbench_TicTacToe.sv|
+!i113 1
+R4
+R5
+ntestbench_@tic@tac@toe
+vtestbench_TTTGAME
+R1
+R19
+!i10b 1
+!s100 YdcYclA87CRNe_9_[zM331
+I@=8TelMb_IeCYIh0>V<dL1
+R2
+!s105 testbench_TTTGAME_sv_unit
+S1
+R0
+w1571693498
+8C:/intelFPGA_lite/18.1/TicTacToe/testbench_TTTGAME.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testbench_TTTGAME.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R20
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testbench_TTTGAME.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testbench_TTTGAME.sv|
+!i113 1
+R4
+R5
+ntestbench_@t@t@t@g@a@m@e
+vtestbench_Video_Controller
+R1
+R17
+!i10b 1
+!s100 1CXdGVob2GN]Q0;I4fhdj3
+IJHZ[CN60N8UCTCQ:Z;a@R2
+R2
+!s105 testbench_Video_Controller_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R20
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/testbench_Video_Controller.sv|
+!i113 1
+R4
+R5
+ntestbench_@video_@controller
+vtic_tac_toe_game
+R1
+R17
+!i10b 1
+!s100 iWloE@b2BTdf_c<Ob=QDL2
+I7;Tnjl=Oh3LHh6J>:A2=h0
+R2
+!s105 tic_tac_toe_game_sv_unit
+S1
+R0
+w1571696827
+8C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R18
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/tic_tac_toe_game.sv|
+!i113 1
+R4
+R5
+vTicTacToe
+R1
+Z21 !s110 1571706163
+!i10b 1
+!s100 9D:UF635aEIL^Hn96@Bd]3
+I::K0<eznbCf1HKXLE[8ib2
+R2
+!s105 TicTacToe_sv_unit
+S1
+R0
+w1571697942
+8C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z22 !s108 1571706163.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/TicTacToe.sv|
+!i113 1
+R4
+R5
+n@tic@tac@toe
+vv_driver
+R1
+R21
+!i10b 1
+!s100 P:HzcNHdeieke=822zPgf3
+IWLLH1ed6P?ZWBY;J@2?a`1
+R2
+!s105 v_driver_sv_unit
+S1
+R0
+w1570722662
+8C:/intelFPGA_lite/18.1/TicTacToe/v_driver.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/v_driver.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R22
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/v_driver.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/v_driver.sv|
+!i113 1
+R4
+R5
+vvertical_counter
+R1
+Z23 !s110 1571706164
+!i10b 1
+!s100 lWIaa5MoEZ52adGJYlBl92
+ITc=P>R_Z1LXaVNHH<6j0>3
+R2
+!s105 vertical_counter_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv
+L0 2
+R3
+r1
+!s85 0
+31
+Z24 !s108 1571706164.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/vertical_counter.sv|
+!i113 1
+R4
+R5
+vvideo_controller
+R1
+R23
+!i10b 1
+!s100 @=OPaCBG1DKhKKCLd8iQj0
+I=I??EbKGm;AhlLCE`VIV21
+R2
+!s105 video_controller_sv_unit
+S1
+R0
+R14
+8C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R24
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv|
+!s90 -reportprogress|300|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/video_controller.sv|
+!i113 1
+R4
+R5
+vvisibleLogic
+R1
+R23
+!i10b 1
+!s100 8`KGX<g^?O0AaMF_z:^o]0
+I>:MdIIZFF>=Jn8i3lf4QK1
+R2
+!s105 visibleLogic_sv_unit
+S1
+R0
+w1570123417
+8C:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R24
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv|
+!s90 -reportprogress|30|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/visibleLogic.sv|
+!i113 1
+R4
+R5
+nvisible@logic
+vwinner_detect_3
+R1
+Z25 !s110 1571706165
+!i10b 1
+!s100 QO@`aLn7QM_DLWP??eN_]1
+Iz]K=iR?kJe5i=fEgi9SOT1
+R2
+!s105 winner_detect_3_sv_unit
+S1
+R0
+w1569992949
+8C:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv
+L0 5
+R3
+r1
+!s85 0
+31
+R24
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv|
+!s90 -reportprogress|30|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/winner_detect_3.sv|
+!i113 1
+R4
+R5
+vwinner_detector
+R1
+R25
+!i10b 1
+!s100 N15lD4ji?ZKfCTgY7>ALb3
+I1ohkR`FoY`=;@50VAC<EH0
+R2
+!s105 winner_detector_sv_unit
+S1
+R0
+w1571696847
+8C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv
+FC:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv
+L0 6
+R3
+r1
+!s85 0
+31
+!s108 1571706165.000000
+!s107 C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv|
+!s90 -reportprogress|30|-work|work|C:/intelFPGA_lite/18.1/TicTacToe/winner_detector.sv|
+!i113 1
+R4
+R5

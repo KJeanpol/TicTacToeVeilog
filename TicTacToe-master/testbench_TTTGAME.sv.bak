@@ -1,0 +1,25 @@
+module testbench_TTTGAME();
+    input clock; // clock of the game 
+    input reset; // reset button to reset the game 
+    input play; // play button to enable player to play 
+    input pc; // pc button to enable computer to play 
+    input [3:0] computer_position,player_position; 
+    // positions to play 
+    output wire [1:0] pos1,pos2,pos3,
+    pos4,pos5,pos6,pos7,pos8,pos9;
+    // LED display for positions 
+    // 01: Player 
+    // 10: Computer 
+    output wire[1:0]who; 
+    // who the winner is 
+
+	tic_tac_toe_game #4 tic_tac_toe_game_Test(clock, , reset, play, pc, computer_position,player_position);
+
+	initial
+		begin	
+		#10 assign clock = 4'b0101; reset = 4'b0001; play = 0; pc = 0; computer_position = 0; player_position= 0;
+	end
+
+endmodule: testbench_TTTGAME
+
+ 

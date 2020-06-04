@@ -1,0 +1,61 @@
+module tic_tac_toe_game(
+     input clock, // clock of the game 
+     input reset, // reset button to reset the game 
+     input play, // play button to enable player to play 
+     input pc, // pc button to enable computer to play 
+     input [3:0] computer_position,player_position, 
+     // positions to play 
+     output wire [1:0] pos1,pos2,pos3,
+     pos4,pos5,pos6,pos7,pos8,pos9,
+     // LED display for positions 
+     // 01: Player 
+     // 10: Computer 
+     output wire[1:0]who 
+     // who the winner is 
+     );
+ wire [15:0] PC_en;// Computer enable signals 
+ wire [15:0] PL_en; // Player enable signals 
+ wire illegal_move; // disable writing when an illegal move is detected 
+ //wire [1:0] pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9;// positions stored
+ wire win; // win signal 
+ wire computer_play; // computer enabling signal 
+ wire player_play; // player enabling signal 
+ wire no_space; // no space signal 
+ // position registers    
+  position_registers position_reg_unit(
+      clock, // clock of the game 
+      reset, // reset the game 
+      illegal_move, // disable writing when an illegal move is detected 
+      PC_en[8:0], // Computer enable signals 
+      PL_en[8:0], // Player enable signals 
+      pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9// positions stored
+      );
+ // winner detector 
+ winner_detector win_detect_unit(pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,win,who);
+ // position decoder for computer 
+ position_decoder pd1(computer_position,computer_play,PC_en);
+ // position decoder for player  
+ position_decoder pd2(player_position,player_play,PL_en); 
+ // illegal move detector
+  illegal_move_detector imd_unit(
+   pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9, 
+   PC_en[8:0], PL_en[8:0], 
+   illegal_move
+   );
+ // no space detector 
+ nospace_detector nsd_unit(
+   pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9, 
+   no_space
+    ); 
+ fsm_controller tic_tac_toe_controller(
+     clock,// clock of the circuit 
+     reset,// reset 
+     play, // player plays 
+     pc,// computer plays 
+     illegal_move,// illegal move detected 
+     no_space, // no_space detected 
+     win, // winner detected 
+     computer_play, // enable computer to play 
+     player_play // enable player to play 
+     );    
+endmodule 

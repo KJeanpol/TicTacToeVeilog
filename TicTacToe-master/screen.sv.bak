@@ -1,0 +1,8 @@
+module screen(
+		input data, clk
+		input [9:0] posx, posy, pixelx, pixely,
+		);
+
+sprite_top Sprite(clk, posx, posy, pixelx, pixely);
+
+endmodule
